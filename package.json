@@ -1,0 +1,22 @@
+{
+  "name": "eleventy-link-previews",
+  "version": "1.0.0",
+  "description": "Rich link previews in Eleventy",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/jefago/eleventy-link-previews.git"
+  },
+  "author": "Jens-Fabian Goetzmann",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/jefago/eleventy-link-previews/issues"
+  },
+  "homepage": "https://github.com/jefago/eleventy-link-previews#readme",
+  "dependencies": {
+    "@11ty/eleventy": "^0.9.0"
+  }
+}
