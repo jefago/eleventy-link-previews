@@ -352,36 +352,38 @@ template {
   margin:10px;
 }
 
-@media (min-width: 800px) {
-  #body {
-    width:800px;
-    margin:auto;
-  }
-}
+
 
 .lp {
-	border:1px solid #e0e0e0;
+	border:1px solid #d0d0d0;
 	display: flex;
 	flex-flow: row;
 	margin-bottom:20px;
 	margin-top:20px;
 }
 
-.lp	a {
+.lp svg {
+  width:100px;
+  height:100px;
+}	
+
+.lp	a, .lp a:hover, .lp a:link, .lp a:active, .lp a:visited {
   text-decoration: none;
+  color: black;
 }
-	
+
+.lp a:hover *, .lp a:active * {
+  text-decoration:underline;
+}
 
 .lp-img {
 	display: block;
 	flex: 0 0 100px;
-	background-color:#e0e0e0;
+	background-color:#d0d0d0;
 	min-height:100px;
-	border-right:1px solid #e0e0e0;
-
+	border-right:1px solid #d0d0d0;
 	position: relative;
 }
-	
 
 .lp-img img {
   position: absolute;
@@ -400,29 +402,21 @@ template {
 	padding-bottom:4px;
 	overflow: hidden;	
 	margin:0px;
-
 	font-size: 12px;
 	line-height: 16px;
 }
 
-	
-
-
 .lp-ttl {
 	display: block;
-/*	font-family: sans-serif;*/
 	font-weight: 500;
-
+  font-size:14px;
 	max-height:32px;
 	overflow: hidden;
 }
 
-
-
 .lp-dsc {
-/*	font-family: @font-serif;*/
 	font-style: italic;	
-	max-height: 48px;
+	max-height: 80px;
 	overflow: hidden;	
 }
 
@@ -433,4 +427,39 @@ template {
 
 .lp-by::before {
 	content:"by ";
+}
+
+@media (min-width: 800px) {
+  #body {
+    width:800px;
+    margin:auto;
+  }
+
+	.lp-ttl {
+		font-size:20px;
+		line-height:28px;
+		max-height:56px;
+  }
+  
+  p, blockquote, ul, ol {
+		font-size:20px;
+		line-height:32px;
+		margin-bottom:32px;
+  }
+  
+  .lp-dsc {
+		min-height:48px;
+		max-height:72px;
+  }
+  
+  .lp-dsc,  .lp-by, .lp-dom {
+		font-size:16px;
+		line-height:24px;
+  }
+  
+
+  .lp svg {
+    width:120px;
+    height:120px;
+  }	
 }
