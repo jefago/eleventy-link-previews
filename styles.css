@@ -347,3 +347,90 @@ template {
 [hidden] {
   display: none;
 }
+
+#body {
+  margin:10px;
+}
+
+@media (min-width: 800px) {
+  #body {
+    width:800px;
+    margin:auto;
+  }
+}
+
+.lp {
+	border:1px solid #e0e0e0;
+	display: flex;
+	flex-flow: row;
+	margin-bottom:20px;
+	margin-top:20px;
+}
+
+.lp	a {
+  text-decoration: none;
+}
+	
+
+.lp-img {
+	display: block;
+	flex: 0 0 100px;
+	background-color:#e0e0e0;
+	min-height:100px;
+	border-right:1px solid #e0e0e0;
+
+	position: relative;
+}
+	
+
+.lp-img img {
+  position: absolute;
+  left: 0px;
+  top:0px;
+  width:100%;
+  height:100%;
+  object-fit:cover;
+}
+
+.lp-met {
+	display: block;
+	flex: 1 0px;	
+	padding:8px;
+	padding-top:4px;
+	padding-bottom:4px;
+	overflow: hidden;	
+	margin:0px;
+
+	font-size: 12px;
+	line-height: 16px;
+}
+
+	
+
+
+.lp-ttl {
+	display: block;
+/*	font-family: sans-serif;*/
+	font-weight: 500;
+
+	max-height:32px;
+	overflow: hidden;
+}
+
+
+
+.lp-dsc {
+/*	font-family: @font-serif;*/
+	font-style: italic;	
+	max-height: 48px;
+	overflow: hidden;	
+}
+
+.lp-by, .lp-dom, .lp-dsc {
+	display: block;
+	margin-top: 8px;	
+}
+
+.lp-by::before {
+	content:"by ";
+}
