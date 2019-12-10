@@ -103,4 +103,7 @@ dist
 # TernJS port file
 .tern-port
 
+# Ignore package lock for cross-platform compatibility
 package-lock.json
+# Ignore Eleventy output
+_site
