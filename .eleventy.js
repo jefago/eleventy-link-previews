@@ -1,5 +1,7 @@
-
+const fs = require("fs");
+const crypto = require("crypto");
 const scrape = require('html-metadata');
+const path = require('path');
 
 // Helper function to escape HTML
 const escape = (unsafe) => {
@@ -12,10 +14,7 @@ const escape = (unsafe) => {
 }
 
 const linkPreview = (link, callback) => {
-  /*
-  let hash = crypto.createHash('sha1').update(link).digest('hex');
-  let file = path.join('_links', `${hash}.json`);
-  */
+
   // Helper function to format links
   const format = (metadata) => {
     let domain = link.replace(/^http[s]?:\/\/([^\/]+).*$/i, '$1');
@@ -36,21 +35,29 @@ const linkPreview = (link, callback) => {
             `<span class="lp-dom">${domain}</span></a></p>`.replace(/[\n\r]/g, ' ');
   }
   
+  // Hash the link URL (using SHA1) and create a file name from it
+  let hash = crypto.createHash('sha1').update(link).digest('hex');
+  let file = path.join('_links', `${hash}.json`);
 
-/*    if (fs.existsSync(file)) {
+  if (fs.existsSync(file)) {
+    // File with cached metadata exists
     console.log(`[linkPreview] Using persisted data for link ${link}.`);
     fs.readFile(file, (err, data) => {
       if (err) callback("Reading persisted metadata failed", `<div style="color:#ff0000; font-weight:bold">ERROR: Reading persisted metadata failed</div>`);
+      // Parse file as JSON, pass it to the format function to format the link
       callback(null, format(JSON.parse(data.toString('utf-8'))));
     });
   } else {
-    console.log(`[linkPreview] No persisted data for ${link}, scraping.`);*/
+    // No cached metadata exists
+    console.log(`[linkPreview] No persisted data for ${link}, scraping.`);
     scrape(link).then((metadata => {
       if (!metadata) callback ("No metadata", `<div style="color:#ff0000; font-weight:bold">ERROR: Did not receive metadata</div>`);
-//        fs.writeFile(file, JSON.stringify(metadata, null, 2), (err) => { /* Ignore errors, worst case we parse the link again */ });
+      // First, store the metadata returned by scrape in the file
+      fs.writeFile(file, JSON.stringify(metadata, null, 2), (err) => { /* Ignore errors, worst case we parse the link again */ });
+      // Then, format the link
       callback(null, format(metadata)); 
     }));
-//  }  
+  }  
 }
 
 module.exports = function(config) {
