@@ -28,8 +28,9 @@ const linkPreview = (link, callback) => {
     }
     return  `<p class="lp"><a class="lp-img" href="${link}">` +
             '<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 67.733 67.733"><path fill="#d0d0d0" d="M0 0h67.733v67.733H0z"/><path fill="#fff" d="M33.867 13.547a20.32 20.32 0 00-20.32 20.32 20.32 20.32 0 0020.32 20.32 20.32 20.32 0 0020.32-20.32H50.8A16.933 16.933 0 0133.867 50.8a16.933 16.933 0 01-16.934-16.933 16.933 16.933 0 0116.934-16.934z"/><path fill="#fff" d="M26.383 36.361l4.99 4.99 19.955-19.957 4.99 4.99V11.415H41.35l4.99 4.99L26.382 36.36"/></svg>' +
-  //          (image ? `<img src="data:image/png;base64,R0lGODlhAQABAAD/ACwAAAAAAQABAAACADs=" data-src="${image}" alt="${title}">` : '') +
-            (image ? `<img src="${image}" alt="${title}">` : '') +
+            (image ? `<img src="data:image/png;base64,R0lGODlhAQABAAD/ACwAAAAAAQABAAACADs=" data-src="${image}" alt="${title}">` : '') +
+//          Use the below line without lazy loading
+//          (image ? `<img src="${image}" alt="${title}">` : '') +
             `</a><a class="lp-met" href="${link}"><strong class="lp-ttl">${title}<br></strong><em class="lp-dsc">${description}</em>` +
             (author ? `<span class="lp-by">${author}</span>` : ``)+
             `<span class="lp-dom">${domain}</span></a></p>`.replace(/[\n\r]/g, ' ');

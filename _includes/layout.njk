@@ -4,6 +4,16 @@
 		<title>{{title}}</title>
 		<link rel="stylesheet" href="/styles.css">
 		<meta name="viewport" content="initial-scale=1.0">
+		<script defer type="text/javascript" src="//cdn.jsdelivr.net/blazy/latest/blazy.min.js"></script>
+		<script type="text/javascript">
+			window.addEventListener('DOMContentLoaded', () => {
+				var bLazy = new Blazy({
+					selector: ".lp img",
+					offset: 300,
+					success: (element) => {element.style.backgroundColor = "white";}
+				});
+			})
+		</script>
 	</head>
 	<body>
     <div id="body">
