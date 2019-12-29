@@ -1,2 +1,2 @@
 # Rich link previews in Eleventy and Nunjucks
-This example Eleventy configuration uses asynchronous Nunjucks filters and `html-metadata` to generate rich previews for web links. See [https://www.jefago.com//technology/rich-link-previews-in-eleventy-and-nunjucks/] for more details and a walk-through of the code.
+This example Eleventy configuration uses asynchronous Nunjucks filters and `html-metadata` to generate rich previews for web links. See https://www.jefago.com//technology/rich-link-previews-in-eleventy-and-nunjucks/ for more details and a walk-through of the code.x
